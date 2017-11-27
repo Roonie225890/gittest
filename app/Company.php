@@ -21,4 +21,7 @@ class Company extends Model
       return $this->hasMany('App\project');
     }
 
+    public function comments(){
+      return $this->morphMany('App\Comment','commentable');
+    }
 }

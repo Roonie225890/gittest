@@ -36,9 +36,7 @@ class User extends Authenticatable
     // Every role has many users
 
 
-    public function comments(){
-      return $this->hasMany('App\Comments');
-    }
+
 
     public function role(){
       return $this->belongsTo('App\Role');
@@ -54,6 +52,10 @@ class User extends Authenticatable
 
     public function projects(){
       return $this->belongsToMany('App\Project');
+    }
+
+    public function comments(){
+      return $this->morphMany('App\Comment','commentable');
     }
 
 }
